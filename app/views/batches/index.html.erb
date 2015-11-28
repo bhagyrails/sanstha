@@ -1,0 +1,36 @@
+<h3> Listing Batches </h3>
+<table border "1">
+	<thead>
+		<tr>
+		<th>sl</th>
+			<th>Name</th>
+			<th>Start date</th>
+			<th>End Date</th>
+			<th>Instruction Type</th>
+			<th>Description</th>
+			<th>Created Date</th>
+			<th>Updated Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		 <% @batches.each_with_index do |batch,index| %>
+             <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= batch.name %></td>
+                  <td><%= batch.start_date %></td>
+                  <td><%= batch.end_date %></td>
+                  <td><%= batch.instruction_type %></td>
+                  <td><%= batch.description %></td>
+                  <td><%= batch.created_at%></td>
+                  <td><%= batch.updated_at%></td>
+                  <td><%= link_to "Edit", edit_batch_path(batch.id) %> |
+                       <%= link_to "Delete", batch_path(batch.id), method: :delete, data: {confirm: "Are you sure?"} %> | 
+                       <%= link_to "Show", batch_path(batch.id) %></td>
+             </tr>
+             <% end %>
+	</tbody>
+
+
+</table>
+
+<%= link_to "Add batch", new_batch_path %>

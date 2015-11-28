@@ -1,0 +1,35 @@
+<h3>Edit batches</h3>
+
+<%= form_for @batch do |f|%>
+
+	<% if @batch.errors.any? %>
+        <ul>
+            <% for msg in @batch.errors.full_messages %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+	<% end %>
+
+	<label> Name :</label>
+<%= f.text_field :name %><br/>
+
+<lable>Start Date :</lable>
+<%= f.text_field :start_date %><br/>
+
+<lable>End Date :</lable>
+<%= f.text_field :end_date %><br/>
+
+<label>Instruction Type :</label>
+<%= f.text_field :instruction_type %><br/>
+
+<label>Description :</label>
+<%= f.text_field :description %><br/>
+
+<label>Created Date :</label>
+<%= f.text_field :created_at %><br/>
+
+<label>Updated Date :</label>
+<%= f.text_field :updated_at %><br/><br/><br/>
+
+<%= f.submit %>
+<%end%>
